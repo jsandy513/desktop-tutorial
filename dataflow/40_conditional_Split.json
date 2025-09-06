@@ -12,7 +12,14 @@
 					"name": "source1"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"name": "sink1"
+				},
+				{
+					"name": "sink2"
+				}
+			],
 			"transformations": [
 				{
 					"name": "split1"
@@ -32,7 +39,15 @@
 				"     ignoreNoFilesFound: false) ~> source1",
 				"source1 split(equals(address,'india'),",
 				"     equals(address,'usa'),",
-				"     disjoint: false) ~> split1@(ind, usa)"
+				"     disjoint: false) ~> split1@(ind, usa)",
+				"split1@ind sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1",
+				"split1@usa sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink2"
 			]
 		}
 	}
