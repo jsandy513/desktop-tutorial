@@ -112,7 +112,7 @@
 				"type": "string",
 				"defaultValue": "abc"
 			},
-			"password": {
+			"password1": {
 				"type": "securestring",
 				"defaultValue": {
 					"type": "SecureString",
