@@ -21,6 +21,10 @@
 			],
 			"sinks": [
 				{
+					"dataset": {
+						"referenceName": "exists",
+						"type": "DatasetReference"
+					},
 					"name": "sink1"
 				}
 			],
@@ -54,8 +58,25 @@
 				"     broadcast: 'auto')~> exists1",
 				"exists1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     input(",
+				"          Series_reference as string,",
+				"          Period as string,",
+				"          Data_value as string,",
+				"          Suppressed as string,",
+				"          STATUS as string,",
+				"          UNITS as string,",
+				"          Magnitude as string,",
+				"          Subject as string,",
+				"          Group as string,",
+				"          Series_title_1 as string,",
+				"          Series_title_2 as string,",
+				"          Series_title_3 as string,",
+				"          Series_title_4 as string,",
+				"          Series_title_5 as string",
+				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink1"
 			]
 		}
 	}
