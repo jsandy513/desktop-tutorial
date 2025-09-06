@@ -1,0 +1,208 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "trainingdatafactorysan"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"AzureBlobStorage2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
+		},
+		"Oracle1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Oracle1'"
+		},
+		"ls_blob_parameterized_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_blob_parameterized'"
+		},
+		"ls_blob_storage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_blob_storage'"
+		},
+		"ls_employee_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_employee'"
+		},
+		"ls_sqldb_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_sqldb'"
+		},
+		"ls_sqldb_employee_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_sqldb_employee'"
+		},
+		"Oracle1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "a"
+		},
+		"Oracle1_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "@{linkedService().username}"
+		},
+		"ls_sqldb_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sqldbtest123server.database.windows.net"
+		},
+		"ls_sqldb_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "sqldb"
+		},
+		"ls_sqldb_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adminuser"
+		},
+		"ls_sqldb_employee_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sqldbtest123server.database.windows.net"
+		},
+		"ls_sqldb_employee_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "sqldb"
+		},
+		"ls_sqldb_employee_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adminuser"
+		},
+		"trigger1_properties_pipeline_parameters_start": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowstarttime"
+		},
+		"trigger1_properties_pipeline_parameters_end": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowEndtime"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "trainingdatafactorysan_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"AzureBlobStorage2_connectionString": {
+						"value": "[parameters('AzureBlobStorage2_connectionString')]"
+					},
+					"Oracle1_password": {
+						"value": "[parameters('Oracle1_password')]"
+					},
+					"ls_blob_parameterized_connectionString": {
+						"value": "[parameters('ls_blob_parameterized_connectionString')]"
+					},
+					"ls_blob_storage_connectionString": {
+						"value": "[parameters('ls_blob_storage_connectionString')]"
+					},
+					"ls_employee_connectionString": {
+						"value": "[parameters('ls_employee_connectionString')]"
+					},
+					"ls_sqldb_password": {
+						"value": "[parameters('ls_sqldb_password')]"
+					},
+					"ls_sqldb_employee_password": {
+						"value": "[parameters('ls_sqldb_employee_password')]"
+					},
+					"Oracle1_properties_typeProperties_server": {
+						"value": "[parameters('Oracle1_properties_typeProperties_server')]"
+					},
+					"Oracle1_properties_typeProperties_username": {
+						"value": "[parameters('Oracle1_properties_typeProperties_username')]"
+					},
+					"ls_sqldb_properties_typeProperties_server": {
+						"value": "[parameters('ls_sqldb_properties_typeProperties_server')]"
+					},
+					"ls_sqldb_properties_typeProperties_database": {
+						"value": "[parameters('ls_sqldb_properties_typeProperties_database')]"
+					},
+					"ls_sqldb_properties_typeProperties_userName": {
+						"value": "[parameters('ls_sqldb_properties_typeProperties_userName')]"
+					},
+					"ls_sqldb_employee_properties_typeProperties_server": {
+						"value": "[parameters('ls_sqldb_employee_properties_typeProperties_server')]"
+					},
+					"ls_sqldb_employee_properties_typeProperties_database": {
+						"value": "[parameters('ls_sqldb_employee_properties_typeProperties_database')]"
+					},
+					"ls_sqldb_employee_properties_typeProperties_userName": {
+						"value": "[parameters('ls_sqldb_employee_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "trainingdatafactorysan_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'trainingdatafactorysan_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "trainingdatafactorysan_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"trigger1_properties_pipeline_parameters_start": {
+						"value": "[parameters('trigger1_properties_pipeline_parameters_start')]"
+					},
+					"trigger1_properties_pipeline_parameters_end": {
+						"value": "[parameters('trigger1_properties_pipeline_parameters_end')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'trainingdatafactorysan_ArmTemplate_1')]"
+			]
+		}
+	]
+}
