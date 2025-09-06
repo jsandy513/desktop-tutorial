@@ -1,0 +1,37 @@
+{
+	"name": "df_flow",
+	"properties": {
+		"activities": [
+			{
+				"name": "dataflow_customer_filter_sort_db_toblob",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "dataflow_customer_filter_sort_db_toblob",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"folder": {
+			"name": "1.Basics"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-09-03T12:35:56Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,9 @@
+{
+	"name": "trainingdatafactorysan",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "6645ba8e-5262-4204-a36c-de8d9acf70cb",
+		"tenantId": "5f71187c-d5e7-4cce-940f-18f844072391"
+	}
+}

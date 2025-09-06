@@ -1,0 +1,32 @@
+{
+	"name": "33_execute_pipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "32_validate_activity",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": false,
+					"parameters": {
+						"filename": "abc"
+					}
+				}
+			}
+		],
+		"folder": {
+			"name": "1.Basics"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-09-05T14:34:53Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

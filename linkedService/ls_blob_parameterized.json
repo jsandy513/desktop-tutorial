@@ -1,0 +1,22 @@
+{
+	"name": "ls_blob_parameterized",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"ls_blob_subscription": {
+				"type": "string",
+				"defaultValue": "d28f14b3-dbc4-4bed-8488-1a5ec2b0377c"
+			},
+			"ls_storage_account_name": {
+				"type": "string",
+				"defaultValue": "hospitalstorageanalytics"
+			}
+		},
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=hospitalstorageanalytics;EndpointSuffix=core.windows.net;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDEwNTVCNTFGLUU1NjYtNDBCRS1CRThDLUEyNTUwQzY1NkZBN184ODk0NTljOC01NDczLTQ0NWEtYTE2Yy00ZDY5YjE5MDllYjciDQp9"
+		}
+	}
+}
