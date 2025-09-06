@@ -30,8 +30,8 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> source1",
-				"source1 split(equals(loc,'india'),",
-				"     equals(loc,'usa'),",
+				"source1 split(equals(address,'india'),",
+				"     equals(address,'usa'),",
 				"     disjoint: false) ~> split1@(ind, usa)"
 			]
 		}
