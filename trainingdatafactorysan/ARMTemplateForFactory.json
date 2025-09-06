@@ -3020,6 +3020,7 @@
 						"     ignoreNoFilesFound: false) ~> source2",
 						"source1, source2 exists(emp_id == user,",
 						"     negate:false,",
+						"     partitionBy('hash', 1),",
 						"     broadcast: 'auto')~> exists1",
 						"exists1 sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
