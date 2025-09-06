@@ -30,8 +30,9 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> source1",
-				"source1 split(ERROR_FUNCTION(''),",
-				"     disjoint: false) ~> split1@(ind, )"
+				"source1 split(equals(loc,'india'),",
+				"     ERROR_FUNCTION('equals(loc,__SINGLE_QUOTE__india__SINGLE_QUOTE__)equals(loc,__SINGLE_QUOTE__usa__SINGLE_QUOTE__)'),",
+				"     disjoint: false) ~> split1@(ind, , usa)"
 			]
 		}
 	}
